@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!collection) return { title: "Gallery — Mossy Giraffe" };
   return {
     title: `${collection.title} — Mossy Giraffe`,
-    description: `Gallery: ${collection.title}`,
+    description: `${collection.title} — photography collection. Mossy Giraffe.`,
   };
 }
 
@@ -34,7 +34,7 @@ export default async function CollectionPage({ params }: Props) {
   if (!collection) {
     return (
       <main className="mx-auto min-h-screen max-w-content px-6 py-12 md:px-8 lg:px-12">
-        <p>Collection not found.</p>
+        <p>This collection could not be found.</p>
         <Link href="/gallery" className="text-muted underline hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Back to gallery
         </Link>

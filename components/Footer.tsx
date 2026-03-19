@@ -20,7 +20,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-small text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
-              Follow on BlueSky
+              Bluesky
             </a>
             <Link
               href="/#prints"

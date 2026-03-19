@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Gallery — Mossy Giraffe",
   description:
-    "Adventures, animals, and landscapes — Spain, Paris, San Francisco, Pacific Northwest.",
+    "Collections: Spain, Paris, San Francisco, Pacific Northwest, and animals. Fine-art and travel photography.",
 };
 
 export default function GalleryPage() {
@@ -19,7 +19,7 @@ export default function GalleryPage() {
           Gallery
         </h1>
         <p className="mt-2 text-body text-muted">
-          Adventures, animals, and landscapes
+          Travel and landscape collections.
         </p>
       </div>
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -100,7 +100,7 @@ export function ImageGridWithLightbox({
                     d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9M5.25 20.25h-4.5m4.5 0v-4.5m0 4.5L9 15m-5.25 5.25v-4.5m0 4.5h4.5m-4.5 0L15 15"
                   />
                 </svg>
-                View fullsize
+                View full size
               </span>
             </button>
           </li>

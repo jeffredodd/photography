@@ -12,7 +12,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Mossy Giraffe",
   description:
-    "Venturing to Every Corner — Photography of places, mountains, cities, and the Pacific Northwest.",
+    "Fine-art and travel photography: landscapes, cities, and the Pacific Northwest. Prints available.",
 };
 
 export default function RootLayout({
