@@ -50,17 +50,17 @@ export default function GalleryPage() {
                   unoptimized
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/70" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+              <div className="image-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/80" />
+              <div className="text-on-image text-on-image-backdrop absolute bottom-0 left-0 right-0 p-5 md:p-6">
                 <h2 className="font-display text-lg font-semibold text-white md:text-xl">
                   {col.title}
                 </h2>
                 {col.description && (
-                  <p className="mt-1 text-caption leading-relaxed text-white/70 transition-colors group-hover:text-white/80">
+                  <p className="mt-1 text-caption leading-relaxed text-white/80 transition-colors group-hover:text-white/90">
                     {col.description}
                   </p>
                 )}
-                <span className="mt-2 inline-block text-caption font-medium uppercase tracking-widest text-white/40">
+                <span className="mt-2 inline-block text-caption font-medium uppercase tracking-widest text-white/70">
                   {col.images.length} photos
                 </span>
               </div>

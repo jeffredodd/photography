@@ -199,8 +199,8 @@ export function Lightbox({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1">
-        <span className="text-sm text-white/70">
+      <div className="text-on-image absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1">
+        <span className="text-sm text-white/80">
           {currentIndex + 1} / {images.length}
         </span>
       </div>

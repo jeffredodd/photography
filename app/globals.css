@@ -78,3 +78,61 @@
 .animate-scale-in {
   animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* ------------------------------------------------------------------ */
+/* A11y: text-over-image contrast utilities                           */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Apply to any container whose children render text on top of a
+ * photograph.  The multi-stop text-shadow guarantees WCAG AA contrast
+ * regardless of the underlying image brightness, while backdrop-filter
+ * adds a subtle adaptive darkening behind the text block.
+ */
+.text-on-image {
+  text-shadow:
+    0 1px 3px rgb(0 0 0 / 0.6),
+    0 2px 8px rgb(0 0 0 / 0.35);
+}
+
+/* Subtle adaptive darkening behind text containers over images */
+.text-on-image-backdrop {
+  -webkit-backdrop-filter: brightness(0.7) saturate(1.1);
+  backdrop-filter: brightness(0.7) saturate(1.1);
+}
+
+/* ---- Respect user a11y preferences ---- */
+
+/* Users who prefer MORE contrast get heavier shadows & darker overlays */
+@media (prefers-contrast: more) {
+  .text-on-image {
+    text-shadow:
+      0 0 4px rgb(0 0 0),
+      0 1px 6px rgb(0 0 0 / 0.9),
+      0 2px 16px rgb(0 0 0 / 0.6);
+  }
+
+  /* Strengthen every gradient overlay on image cards */
+  .image-gradient-overlay {
+    --tw-gradient-from: rgb(0 0 0 / 0.85) var(--tw-gradient-from-position);
+    --tw-gradient-via: rgb(0 0 0 / 0.4) var(--tw-gradient-via-position);
+  }
+
+  .text-on-image-backdrop {
+    -webkit-backdrop-filter: brightness(0.5) saturate(1.2);
+    backdrop-filter: brightness(0.5) saturate(1.2);
+  }
+}
+
+/* Users who prefer reduced transparency get near-opaque overlays */
+@media (prefers-reduced-transparency) {
+  .image-gradient-overlay {
+    --tw-gradient-from: rgb(0 0 0 / 0.9) var(--tw-gradient-from-position);
+    --tw-gradient-via: rgb(0 0 0 / 0.6) var(--tw-gradient-via-position);
+  }
+
+  .text-on-image-backdrop {
+    -webkit-backdrop-filter: brightness(0.4);
+    backdrop-filter: brightness(0.4);
+  }
+}

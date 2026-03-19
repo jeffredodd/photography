@@ -25,15 +25,15 @@ export default function Home() {
             unoptimized
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <div className="image-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="relative flex h-full flex-col justify-end px-6 pb-16 md:px-8 md:pb-20 lg:px-12 lg:pb-24">
-            <div className="mx-auto w-full max-w-content">
+            <div className="text-on-image mx-auto w-full max-w-content">
               <h1 className="animate-slide-up font-display font-bold tracking-tight text-white text-hero md:text-hero-lg lg:text-hero-xl">
                 Where Light Tells
                 <br />
                 the Story
               </h1>
-              <p className="mt-4 animate-slide-up text-body text-white/80 [animation-delay:150ms] md:text-lg">
+              <p className="mt-4 animate-slide-up text-body text-white/90 [animation-delay:150ms] md:text-lg">
                 Fine-art photography capturing the quiet drama of landscapes,
                 architecture, and wildlife—from the misty Pacific Northwest to
                 the sun-warmed streets of Europe.
@@ -82,17 +82,17 @@ export default function Home() {
                   unoptimized
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/60" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <div className="image-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/70" />
+              <div className="text-on-image text-on-image-backdrop absolute bottom-0 left-0 right-0 p-6 md:p-8">
                 <h3 className="font-display text-xl font-semibold text-white md:text-2xl">
                   {col.title}
                 </h3>
                 {col.description && (
-                  <p className="mt-1.5 text-small leading-relaxed text-white/80">
+                  <p className="mt-1.5 text-small leading-relaxed text-white/90">
                     {col.description}
                   </p>
                 )}
-                <span className="mt-3 inline-block text-caption font-medium uppercase tracking-widest text-white/50">
+                <span className="mt-3 inline-block text-caption font-medium uppercase tracking-widest text-white/70">
                   {col.images.length} photos
                 </span>
               </div>
