@@ -33,26 +33,26 @@ export function ImageGridWithLightbox({
 
   return (
     <>
-      <div className="mb-6 flex items-center gap-4 text-sm text-gray-600">
-        <Link href="/" className="hover:underline">
+      <div className="mb-6 flex items-center gap-4 text-small text-muted">
+        <Link href="/" className="hover:text-foreground hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Mossy Giraffe
         </Link>
         <span>/</span>
-        <Link href="/gallery" className="hover:underline">
+        <Link href="/gallery" className="hover:text-foreground hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Gallery
         </Link>
         <span>/</span>
-        <span className="text-gray-900">{collection.title}</span>
+        <span className="text-foreground">{collection.title}</span>
       </div>
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-3xl font-bold tracking-tight">
+        <h1 className="text-section font-bold tracking-tight text-foreground">
           {collection.title}
         </h1>
         <div className="flex gap-6">
           {prevSlug && (
             <Link
               href={`/gallery/${prevSlug}`}
-              className="text-gray-600 transition hover:text-gray-900"
+              className="text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               ← Previous
             </Link>
@@ -60,7 +60,7 @@ export function ImageGridWithLightbox({
           {nextSlug && (
             <Link
               href={`/gallery/${nextSlug}`}
-              className="text-gray-600 transition hover:text-gray-900"
+              className="text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               Next →
             </Link>
@@ -73,9 +73,9 @@ export function ImageGridWithLightbox({
             <button
               type="button"
               onClick={() => open(i)}
-              className="group block w-full text-left"
+              className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring rounded-lg"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100">
+              <div className="aspect-square w-full overflow-hidden rounded-lg bg-surface">
                 <Image
                   src={withBasePath(img.src)}
                   alt={img.alt}
@@ -85,7 +85,21 @@ export function ImageGridWithLightbox({
                   unoptimized
                 />
               </div>
-              <span className="mt-1 block text-xs text-gray-500">
+              <span className="mt-1 flex items-center justify-center gap-1 text-caption text-muted group-hover:text-foreground">
+                <svg
+                  className="h-3.5 w-3.5 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9M5.25 20.25h-4.5m4.5 0v-4.5m0 4.5L9 15m-5.25 5.25v-4.5m0 4.5h4.5m-4.5 0L15 15"
+                  />
+                </svg>
                 View fullsize
               </span>
             </button>

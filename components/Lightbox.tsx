@@ -45,7 +45,7 @@ export function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 animate-fade-in"
       role="dialog"
       aria-modal="true"
       aria-label="Image lightbox"
@@ -53,7 +53,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={onClose}
-        className="absolute right-4 top-4 z-10 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white"
+        className="absolute right-4 top-4 z-10 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50"
         aria-label="Close"
       >
         <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={onPrev}
-        className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white disabled:opacity-30"
+        className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30"
         aria-label="Previous image"
         disabled={currentIndex <= 0}
       >
@@ -84,7 +84,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={onNext}
-        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white disabled:opacity-30"
+        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30"
         aria-label="Next image"
         disabled={currentIndex >= images.length - 1}
       >

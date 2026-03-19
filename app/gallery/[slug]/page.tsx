@@ -33,9 +33,9 @@ export default async function CollectionPage({ params }: Props) {
 
   if (!collection) {
     return (
-      <main className="min-h-screen px-6 py-12">
+      <main className="mx-auto min-h-screen max-w-content px-6 py-12 md:px-8 lg:px-12">
         <p>Collection not found.</p>
-        <Link href="/gallery" className="text-gray-600 underline hover:text-gray-900">
+        <Link href="/gallery" className="text-muted underline hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Back to gallery
         </Link>
       </main>
@@ -43,7 +43,7 @@ export default async function CollectionPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen px-6 py-8 md:px-8 lg:max-w-6xl lg:px-12 lg:py-12">
+    <main className="mx-auto min-h-screen max-w-content px-6 py-8 md:px-8 lg:px-12 lg:py-12">
       <ImageGridWithLightbox
         collection={collection}
         prevSlug={prev?.slug ?? null}

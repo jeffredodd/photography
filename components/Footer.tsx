@@ -4,13 +4,13 @@ const BLUESKY_URL = "https://bsky.app";
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+    <footer className="border-t border-border bg-surface">
+      <div className="mx-auto max-w-content px-6 py-12 md:px-8 lg:px-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-medium text-gray-900">Mossy Giraffe</p>
-            <p className="mt-1 text-sm text-gray-600">
-              Venturing to every corner.
+            <p className="font-medium text-foreground">Mossy Giraffe</p>
+            <p className="mt-1 text-small text-muted">
+              Venturing to Every Corner.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -18,19 +18,19 @@ export function Footer() {
               href={BLUESKY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-600 transition hover:text-gray-900"
+              className="text-small text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               Follow on BlueSky
             </a>
             <Link
               href="/#prints"
-              className="text-sm text-gray-600 transition hover:text-gray-900"
+              className="text-small text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               Prints
             </Link>
           </div>
         </div>
-        <p className="mt-8 text-xs text-gray-500">
+        <p className="mt-8 text-caption text-muted">
           © {new Date().getFullYear()} Mossy Giraffe. All rights reserved.
         </p>
       </div>
