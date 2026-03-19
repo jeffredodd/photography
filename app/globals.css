@@ -115,6 +115,7 @@
   /* Strengthen every gradient overlay on image cards */
   .image-gradient-overlay {
     --tw-gradient-from: rgb(0 0 0 / 0.85) var(--tw-gradient-from-position);
+    --tw-gradient-via: rgb(0 0 0 / 0.4) var(--tw-gradient-via-position);
   }
 
   .text-on-image-backdrop {

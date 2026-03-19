@@ -25,7 +25,7 @@ export default function Home() {
             unoptimized
             priority
           />
-          <div className="image-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5" />
+          <div className="image-gradient-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="relative flex h-full flex-col justify-end px-6 pb-16 md:px-8 md:pb-20 lg:px-12 lg:pb-24">
             <div className="text-on-image mx-auto w-full max-w-content">
               <h1 className="animate-slide-up font-display font-bold tracking-tight text-white text-hero md:text-hero-lg lg:text-hero-xl">
