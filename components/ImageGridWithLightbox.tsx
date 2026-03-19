@@ -78,26 +78,31 @@ export function ImageGridWithLightbox({
 
   return (
     <>
-      <div className="mb-6 flex items-center gap-4 text-small text-muted">
+      <div className="mb-6 flex items-center gap-2 text-small text-muted">
         <Link href="/" className="hover:text-foreground hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Mossy Giraffe
         </Link>
-        <span>/</span>
+        <span className="text-border">/</span>
         <Link href="/gallery" className="hover:text-foreground hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring">
           Gallery
         </Link>
-        <span>/</span>
+        <span className="text-border">/</span>
         <span className="text-foreground">{collection.title}</span>
       </div>
-      <div className="mb-8 flex items-center justify-between">
-        <h1 className="font-display text-section font-bold tracking-tight text-foreground">
-          {collection.title}
-        </h1>
+      <div className="mb-10 flex items-end justify-between">
+        <div>
+          <h1 className="font-display text-section-lg font-bold tracking-tight text-foreground md:text-hero">
+            {collection.title}
+          </h1>
+          <p className="mt-1 text-small text-muted">
+            {collection.images.length} photographs
+          </p>
+        </div>
         <div className="flex gap-6">
           {prevSlug && (
             <Link
               href={`/gallery/${prevSlug}`}
-              className="text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
+              className="text-small font-medium text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               ← Previous
             </Link>
@@ -105,42 +110,72 @@ export function ImageGridWithLightbox({
           {nextSlug && (
             <Link
               href={`/gallery/${nextSlug}`}
-              className="text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
+              className="text-small font-medium text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
             >
               Next →
             </Link>
           )}
         </div>
       </div>
-      <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
-        {collection.images.map((img, i) => (
-          <li
-            key={i}
-            className="animate-stagger-in opacity-0"
-            style={{ animationDelay: `${i * 50}ms` }}
+
+      {/* Featured first image - large */}
+      {collection.images.length > 0 && (
+        <div className="mb-4 md:mb-6">
+          <button
+            type="button"
+            onClick={() => open(0)}
+            className="animate-scale-in group block w-full text-left opacity-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
           >
-            <button
-              type="button"
-              onClick={() => open(i)}
-              className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring rounded-lg"
+            <div className="aspect-[3/2] w-full overflow-hidden bg-surface">
+              <Image
+                src={withBasePath(collection.images[0].src)}
+                alt={collection.images[0].alt}
+                width={1200}
+                height={800}
+                className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+                sizes="(max-width: 768px) 100vw, 72rem"
+                unoptimized
+              />
+            </div>
+          </button>
+        </div>
+      )}
+
+      {/* Remaining images in grid */}
+      {collection.images.length > 1 && (
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
+          {collection.images.slice(1).map((img, i) => (
+            <li
+              key={i + 1}
+              className="animate-stagger-in opacity-0"
+              style={{ animationDelay: `${(i + 1) * 50}ms` }}
             >
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-surface">
-                <Image
-                  src={withBasePath(img.src)}
-                  alt={img.alt}
-                  width={400}
-                  height={300}
-                  className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-105"
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                  unoptimized
-                />
-              </div>
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button
+                type="button"
+                onClick={() => open(i + 1)}
+                className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
+              >
+                <div className="aspect-[4/3] w-full overflow-hidden bg-surface">
+                  <Image
+                    src={withBasePath(img.src)}
+                    alt={img.alt}
+                    width={400}
+                    height={300}
+                    className="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105"
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                    unoptimized
+                  />
+                </div>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+
       {lightboxIndex !== null && (
         <Lightbox
           images={collection.images}
