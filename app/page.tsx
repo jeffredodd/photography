@@ -29,20 +29,21 @@ export default function Home() {
           <div className="relative flex h-full flex-col justify-end px-6 pb-16 md:px-8 md:pb-20 lg:px-12 lg:pb-24">
             <div className="mx-auto w-full max-w-content">
               <h1 className="animate-slide-up font-display font-bold tracking-tight text-white text-hero md:text-hero-lg lg:text-hero-xl">
-                Venturing to
+                Where Light Tells
                 <br />
-                Every Corner
+                the Story
               </h1>
               <p className="mt-4 animate-slide-up text-body text-white/80 [animation-delay:150ms] md:text-lg">
-                Landscapes, cityscapes, and the in-between—light, mood, and
-                place.
+                Fine-art photography capturing the quiet drama of landscapes,
+                architecture, and wildlife—from the misty Pacific Northwest to
+                the sun-warmed streets of Europe.
               </p>
               <div className="mt-8 animate-slide-up [animation-delay:300ms]">
                 <Link
                   href="/gallery"
                   className="inline-block border border-white/30 bg-white/10 px-8 py-3.5 text-small font-medium uppercase tracking-widest text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50"
                 >
-                  View Gallery
+                  Explore the Collections
                 </Link>
               </div>
             </div>
@@ -118,20 +119,21 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-3 font-display text-section-lg font-bold tracking-tight text-foreground">
-              Landscapes & Travel
+              From the Northwest to the World
             </h2>
             <p className="mt-6 text-body leading-relaxed text-muted">
-              Work rooted in the Pacific Northwest—its light, weather, and
-              scale—plus travel from Spain, Paris, and San Francisco. Each
-              collection captures the character of a place through careful
-              composition and natural light.
+              Every collection begins with a sense of place. The fog-draped
+              coastlines and ancient forests of the Pacific Northwest. The
+              golden-hour glow over Spanish plazas and Parisian rooftops. The
+              bold geometry of San Francisco against the Pacific sky. Each image
+              is an invitation to pause and look closer.
             </p>
             <div className="mt-8">
               <Link
                 href="/gallery"
                 className="font-medium text-foreground underline decoration-border underline-offset-4 transition hover:decoration-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
               >
-                Browse the gallery →
+                Start exploring →
               </Link>
             </div>
           </div>

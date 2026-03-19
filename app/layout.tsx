@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Mossy Giraffe",
   description:
-    "Fine-art photography: landscapes, cities, and the Pacific Northwest.",
+    "Fine-art landscape, travel, and wildlife photography by Mossy Giraffe. Curated collections from the Pacific Northwest, Spain, Paris, and San Francisco.",
 };
 
 export default function RootLayout({
