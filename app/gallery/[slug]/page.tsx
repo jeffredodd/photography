@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!collection) return { title: "Gallery — Mossy Giraffe" };
   return {
     title: `${collection.title} — Mossy Giraffe`,
-    description: `${collection.title} — photography collection. Mossy Giraffe.`,
+    description: collection.description
+      ? `${collection.description} Fine-art photography by Mossy Giraffe.`
+      : `Browse the ${collection.title} photography collection by Mossy Giraffe — fine-art landscape and travel photography.`,
   };
 }
 

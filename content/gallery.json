@@ -3,182 +3,187 @@
     {
       "slug": "spain",
       "title": "Spain",
+      "description": "Sun-drenched architecture, cobblestone plazas, and the warm Mediterranean light of southern Spain.",
       "images": [
         {
           "src": "images/spain/SpainFranceIG-203.jpg",
-          "alt": "SpainFranceIG-203"
+          "alt": "Sunset through a grand stone archway in Spain with pink and blue clouds over the courtyard"
         },
         {
           "src": "images/spain/SpainFranceIG-239.jpg",
-          "alt": "SpainFranceIG-239"
+          "alt": "Spanish architecture bathed in warm golden-hour light"
         },
         {
           "src": "images/spain/SpainFranceIG-179.jpg",
-          "alt": "SpainFranceIG-179"
+          "alt": "Narrow Spanish street with textured stone walls and dramatic shadows"
         },
         {
           "src": "images/spain/SpainFranceIG-202.jpg",
-          "alt": "SpainFranceIG-202"
+          "alt": "Ornate Spanish building facade against a vivid sky"
         },
         {
           "src": "images/spain/SpainFranceIG-205.jpg",
-          "alt": "SpainFranceIG-205"
+          "alt": "Twilight view of a Spanish plaza with historic stonework"
         },
         {
           "src": "images/spain/SpainFranceIG-169.jpg",
-          "alt": "SpainFranceIG-169"
+          "alt": "Spanish countryside landscape with rolling terrain at dusk"
         }
       ]
     },
     {
       "slug": "paris",
       "title": "Paris",
+      "description": "The City of Light — timeless façades, quiet courtyards, and the romance of Parisian streets.",
       "images": [
         {
           "src": "images/paris/SpainFranceIG-158.jpg",
-          "alt": "SpainFranceIG-158"
+          "alt": "Classic Parisian architecture with ornamental ironwork balconies"
         },
         {
           "src": "images/paris/SpainFranceIG-164.jpg",
-          "alt": "SpainFranceIG-164"
+          "alt": "Quiet Parisian street scene with warm window light at dusk"
         },
         {
           "src": "images/paris/SpainFranceIG-155.jpg",
-          "alt": "SpainFranceIG-155"
+          "alt": "Iconic Paris rooftops and chimneys under soft overcast sky"
         },
         {
           "src": "images/paris/SpainFranceIG-162.jpg",
-          "alt": "SpainFranceIG-162"
+          "alt": "Stone bridge over the Seine with the Paris skyline beyond"
         },
         {
           "src": "images/paris/SpainFranceIG-165.jpg",
-          "alt": "SpainFranceIG-165"
+          "alt": "Parisian café-lined boulevard with evening light"
         },
         {
           "src": "images/paris/SpainFranceIG-151.jpg",
-          "alt": "SpainFranceIG-151"
+          "alt": "Cobblestone Parisian alley with historic buildings"
         },
         {
           "src": "images/paris/SpainFranceIG-157.jpg",
-          "alt": "SpainFranceIG-157"
+          "alt": "Paris courtyard garden framed by elegant stonework"
         },
         {
           "src": "images/paris/SpainFranceIG-152.jpg",
-          "alt": "SpainFranceIG-152"
+          "alt": "Grand Parisian doorway with intricate carved details"
         },
         {
           "src": "images/paris/SpainFranceIG-163.jpg",
-          "alt": "SpainFranceIG-163"
+          "alt": "Early morning light on a quiet Paris intersection"
         },
         {
           "src": "images/paris/SpainFranceIG-150.jpg",
-          "alt": "SpainFranceIG-150"
+          "alt": "Haussmann-style Paris buildings at golden hour"
         }
       ]
     },
     {
       "slug": "animals",
       "title": "Animals",
+      "description": "Intimate wildlife portraits capturing personality, texture, and the unguarded moments of the animal world.",
       "images": [
         {
           "src": "images/animals/SpainFranceIG-121.jpg",
-          "alt": "SpainFranceIG-121"
+          "alt": "Close-up wildlife portrait with soft natural light"
         },
         {
           "src": "images/animals/SpainFranceIG-124.jpg",
-          "alt": "SpainFranceIG-124"
+          "alt": "Animal in its natural habitat with shallow depth of field"
         },
         {
           "src": "images/animals/SpainFranceIG-123.jpg",
-          "alt": "SpainFranceIG-123"
+          "alt": "Detailed wildlife portrait capturing texture and expression"
         },
         {
           "src": "images/animals/SpainFranceIG-110.jpg",
-          "alt": "SpainFranceIG-110"
+          "alt": "Wildlife photograph with dramatic bokeh background"
         },
         {
           "src": "images/animals/SpainFranceIG-143.jpg",
-          "alt": "SpainFranceIG-143"
+          "alt": "Animal portrait in warm afternoon light"
         },
         {
           "src": "images/animals/SpainFranceIG-138.jpg",
-          "alt": "SpainFranceIG-138"
+          "alt": "Candid wildlife moment in a natural setting"
         }
       ]
     },
     {
       "slug": "san-francisco",
       "title": "San Francisco",
+      "description": "Fog, steel, and Pacific light — the dramatic urban landscape of the Bay Area.",
       "images": [
         {
           "src": "images/san-francisco/SpainFranceIG-262.jpg",
-          "alt": "SpainFranceIG-262"
+          "alt": "San Francisco cityscape with iconic skyline and fog"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-269.jpg",
-          "alt": "SpainFranceIG-269"
+          "alt": "Golden Gate Bridge emerging from Bay Area fog"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-270.jpg",
-          "alt": "SpainFranceIG-270"
+          "alt": "San Francisco urban geometry with steep streets and row houses"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-272.jpg",
-          "alt": "SpainFranceIG-272"
+          "alt": "Pacific Ocean light reflecting off San Francisco architecture"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-277.jpg",
-          "alt": "SpainFranceIG-277"
+          "alt": "Dramatic San Francisco waterfront scene at dusk"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-279.jpg",
-          "alt": "SpainFranceIG-279"
+          "alt": "Victorian architecture against the San Francisco skyline"
         },
         {
           "src": "images/san-francisco/SpainFranceIG-281.jpg",
-          "alt": "SpainFranceIG-281"
+          "alt": "Moody Bay Area seascape with rolling coastal fog"
         }
       ]
     },
     {
       "slug": "pacific-northwest",
       "title": "Pacific Northwest",
+      "description": "Moss-covered forests, rugged coastlines, and the moody, ever-changing skies of the PNW.",
       "images": [
         {
           "src": "images/pacific-northwest/SpainFranceIG-145.jpg",
-          "alt": "SpainFranceIG-145"
+          "alt": "Lush Pacific Northwest forest draped in moss and mist"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-148.jpg",
-          "alt": "SpainFranceIG-148"
+          "alt": "Rugged PNW coastline with crashing waves and sea stacks"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-119.jpg",
-          "alt": "SpainFranceIG-119"
+          "alt": "Old-growth trees towering in a Pacific Northwest rainforest"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-146.jpg",
-          "alt": "SpainFranceIG-146"
+          "alt": "Moody overcast sky over a Northwest mountain landscape"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-128.jpg",
-          "alt": "SpainFranceIG-128"
+          "alt": "Misty river winding through a dense PNW forest"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-127.jpg",
-          "alt": "SpainFranceIG-127"
+          "alt": "Pacific Northwest wildflower meadow with mountain backdrop"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-133.jpg",
-          "alt": "SpainFranceIG-133"
+          "alt": "Fog rolling through a quiet Northwest valley at dawn"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-131.jpg",
-          "alt": "SpainFranceIG-131"
+          "alt": "Dramatic sunset over the Pacific Northwest coastline"
         },
         {
           "src": "images/pacific-northwest/SpainFranceIG-142.jpg",
-          "alt": "SpainFranceIG-142"
+          "alt": "Reflection of evergreen trees in a still PNW lake"
         }
       ]
     }

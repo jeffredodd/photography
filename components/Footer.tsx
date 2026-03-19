@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <p className="font-medium text-foreground">Mossy Giraffe</p>
             <p className="mt-1 text-small text-muted">
-              Venturing to Every Corner.
+              Fine-art photography rooted in the Pacific Northwest.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

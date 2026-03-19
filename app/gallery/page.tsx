@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Gallery — Mossy Giraffe",
   description:
-    "Collections: Spain, Paris, San Francisco, Pacific Northwest, and animals. Fine-art photography.",
+    "Browse curated photography collections — European travel, Pacific Northwest landscapes, San Francisco cityscapes, and wildlife portraits by Mossy Giraffe.",
 };
 
 export default function GalleryPage() {
@@ -20,7 +20,7 @@ export default function GalleryPage() {
           Gallery
         </h1>
         <p className="mt-2 text-body text-muted">
-          Travel and landscape collections.
+          Curated collections of landscape, travel, and wildlife photography.
         </p>
       </div>
       <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -45,8 +45,15 @@ export default function GalleryPage() {
                   />
                 </div>
               )}
-              <span className="block p-4 font-medium text-foreground">
-                {col.title}
+              <span className="block p-4">
+                <span className="font-medium text-foreground">
+                  {col.title}
+                </span>
+                {col.description && (
+                  <span className="mt-1 block text-small text-muted">
+                    {col.description}
+                  </span>
+                )}
               </span>
             </Link>
           </li>
