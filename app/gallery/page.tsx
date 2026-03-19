@@ -50,13 +50,13 @@ export default function GalleryPage() {
                   unoptimized
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 group-hover:from-black/70" />
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
                 <h2 className="font-display text-lg font-semibold text-white md:text-xl">
                   {col.title}
                 </h2>
                 {col.description && (
-                  <p className="mt-1 text-caption leading-relaxed text-white/60 transition-colors group-hover:text-white/80">
+                  <p className="mt-1 text-caption leading-relaxed text-white/70 transition-colors group-hover:text-white/80">
                     {col.description}
                   </p>
                 )}

@@ -87,7 +87,7 @@ export default function Home() {
                   {col.title}
                 </h3>
                 {col.description && (
-                  <p className="mt-1.5 text-small leading-relaxed text-white/70">
+                  <p className="mt-1.5 text-small leading-relaxed text-white/80">
                     {col.description}
                   </p>
                 )}
