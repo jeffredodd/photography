@@ -8,6 +8,7 @@ export type GalleryImage = {
 export type GalleryCollection = {
   slug: string;
   title: string;
+  description?: string;
   images: GalleryImage[];
 };
 

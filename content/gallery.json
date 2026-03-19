@@ -3,6 +3,7 @@
     {
       "slug": "spain",
       "title": "Spain",
+      "description": "Sun-bleached stone, narrow streets, and golden light across the Iberian Peninsula.",
       "images": [
         {
           "src": "images/spain/SpainFranceIG-203.jpg",
@@ -33,6 +34,7 @@
     {
       "slug": "paris",
       "title": "Paris",
+      "description": "The quiet side of the City of Light—fog, iron, and early morning reflections.",
       "images": [
         {
           "src": "images/paris/SpainFranceIG-158.jpg",
@@ -79,6 +81,7 @@
     {
       "slug": "animals",
       "title": "Animals",
+      "description": "Close encounters with wildlife—texture, expression, and untamed character.",
       "images": [
         {
           "src": "images/animals/SpainFranceIG-121.jpg",
@@ -109,6 +112,7 @@
     {
       "slug": "san-francisco",
       "title": "San Francisco",
+      "description": "Fog-wrapped bridges, steep hills, and light slicing through the Bay.",
       "images": [
         {
           "src": "images/san-francisco/SpainFranceIG-262.jpg",
@@ -143,6 +147,7 @@
     {
       "slug": "pacific-northwest",
       "title": "Pacific Northwest",
+      "description": "Mossy forests, volcanic peaks, and the ever-changing light of the Northwest.",
       "images": [
         {
           "src": "images/pacific-northwest/SpainFranceIG-145.jpg",
