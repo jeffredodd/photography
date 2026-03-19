@@ -1,0 +1,186 @@
+{
+  "collections": [
+    {
+      "slug": "spain",
+      "title": "Spain",
+      "images": [
+        {
+          "src": "images/spain/SpainFranceIG-203.jpg",
+          "alt": "SpainFranceIG-203"
+        },
+        {
+          "src": "images/spain/SpainFranceIG-239.jpg",
+          "alt": "SpainFranceIG-239"
+        },
+        {
+          "src": "images/spain/SpainFranceIG-179.jpg",
+          "alt": "SpainFranceIG-179"
+        },
+        {
+          "src": "images/spain/SpainFranceIG-202.jpg",
+          "alt": "SpainFranceIG-202"
+        },
+        {
+          "src": "images/spain/SpainFranceIG-205.jpg",
+          "alt": "SpainFranceIG-205"
+        },
+        {
+          "src": "images/spain/SpainFranceIG-169.jpg",
+          "alt": "SpainFranceIG-169"
+        }
+      ]
+    },
+    {
+      "slug": "paris",
+      "title": "Paris",
+      "images": [
+        {
+          "src": "images/paris/SpainFranceIG-158.jpg",
+          "alt": "SpainFranceIG-158"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-164.jpg",
+          "alt": "SpainFranceIG-164"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-155.jpg",
+          "alt": "SpainFranceIG-155"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-162.jpg",
+          "alt": "SpainFranceIG-162"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-165.jpg",
+          "alt": "SpainFranceIG-165"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-151.jpg",
+          "alt": "SpainFranceIG-151"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-157.jpg",
+          "alt": "SpainFranceIG-157"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-152.jpg",
+          "alt": "SpainFranceIG-152"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-163.jpg",
+          "alt": "SpainFranceIG-163"
+        },
+        {
+          "src": "images/paris/SpainFranceIG-150.jpg",
+          "alt": "SpainFranceIG-150"
+        }
+      ]
+    },
+    {
+      "slug": "animals",
+      "title": "Animals",
+      "images": [
+        {
+          "src": "images/animals/SpainFranceIG-121.jpg",
+          "alt": "SpainFranceIG-121"
+        },
+        {
+          "src": "images/animals/SpainFranceIG-124.jpg",
+          "alt": "SpainFranceIG-124"
+        },
+        {
+          "src": "images/animals/SpainFranceIG-123.jpg",
+          "alt": "SpainFranceIG-123"
+        },
+        {
+          "src": "images/animals/SpainFranceIG-110.jpg",
+          "alt": "SpainFranceIG-110"
+        },
+        {
+          "src": "images/animals/SpainFranceIG-143.jpg",
+          "alt": "SpainFranceIG-143"
+        },
+        {
+          "src": "images/animals/SpainFranceIG-138.jpg",
+          "alt": "SpainFranceIG-138"
+        }
+      ]
+    },
+    {
+      "slug": "san-francisco",
+      "title": "San Francisco",
+      "images": [
+        {
+          "src": "images/san-francisco/SpainFranceIG-262.jpg",
+          "alt": "SpainFranceIG-262"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-269.jpg",
+          "alt": "SpainFranceIG-269"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-270.jpg",
+          "alt": "SpainFranceIG-270"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-272.jpg",
+          "alt": "SpainFranceIG-272"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-277.jpg",
+          "alt": "SpainFranceIG-277"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-279.jpg",
+          "alt": "SpainFranceIG-279"
+        },
+        {
+          "src": "images/san-francisco/SpainFranceIG-281.jpg",
+          "alt": "SpainFranceIG-281"
+        }
+      ]
+    },
+    {
+      "slug": "pacific-northwest",
+      "title": "Pacific Northwest",
+      "images": [
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-145.jpg",
+          "alt": "SpainFranceIG-145"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-148.jpg",
+          "alt": "SpainFranceIG-148"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-119.jpg",
+          "alt": "SpainFranceIG-119"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-146.jpg",
+          "alt": "SpainFranceIG-146"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-128.jpg",
+          "alt": "SpainFranceIG-128"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-127.jpg",
+          "alt": "SpainFranceIG-127"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-133.jpg",
+          "alt": "SpainFranceIG-133"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-131.jpg",
+          "alt": "SpainFranceIG-131"
+        },
+        {
+          "src": "images/pacific-northwest/SpainFranceIG-142.jpg",
+          "alt": "SpainFranceIG-142"
+        }
+      ]
+    }
+  ]
+}
