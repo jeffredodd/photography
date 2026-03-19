@@ -29,9 +29,11 @@ const config: Config = {
         "content-gap": "2rem",
       },
       fontSize: {
-        hero: ["2.25rem", { lineHeight: "2.5rem" }],
-        "hero-lg": ["3rem", { lineHeight: "1" }],
+        hero: ["2.75rem", { lineHeight: "1.1" }],
+        "hero-lg": ["4rem", { lineHeight: "1" }],
+        "hero-xl": ["5rem", { lineHeight: "1" }],
         section: ["1.5rem", { lineHeight: "2rem" }],
+        "section-lg": ["2rem", { lineHeight: "2.5rem" }],
         body: ["1.125rem", { lineHeight: "1.75rem" }],
         small: ["0.875rem", { lineHeight: "1.25rem" }],
         caption: ["0.75rem", { lineHeight: "1rem" }],

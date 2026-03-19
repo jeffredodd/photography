@@ -16,6 +16,11 @@ type Props = {
 
 const CROSSFADE_MS = 250;
 const SWIPE_THRESHOLD_PX = 50;
+const CROSSFADE_STYLE: React.CSSProperties = {
+  animationDuration: `${CROSSFADE_MS}ms`,
+  position: "relative",
+  zIndex: 1,
+};
 
 export function Lightbox({
   images,
@@ -33,7 +38,8 @@ export function Lightbox({
   const img = images[currentIndex];
   const prevImg = previousIndex !== null ? images[previousIndex] : null;
 
-  // Crossfade: when currentIndex changes, show previous fading out and current fading in
+  // Crossfade: when currentIndex changes, keep previous visible underneath while
+  // the current image fades in on top, preventing black-background bleed-through.
   useEffect(() => {
     if (currentIndex === previousIndexRef.current) return;
     setPreviousIndex(previousIndexRef.current);
@@ -41,6 +47,16 @@ export function Lightbox({
     const t = setTimeout(() => setPreviousIndex(null), CROSSFADE_MS);
     return () => clearTimeout(t);
   }, [currentIndex]);
+
+  // Preload adjacent images so they are cached before the user swipes
+  useEffect(() => {
+    const preload = (src: string) => {
+      const img = new window.Image();
+      img.src = withBasePath(src);
+    };
+    if (images[currentIndex - 1]) preload(images[currentIndex - 1].src);
+    if (images[currentIndex + 1]) preload(images[currentIndex + 1].src);
+  }, [currentIndex, images]);
 
   const handleClose = useCallback(() => {
     setIsClosing(true);
@@ -143,12 +159,9 @@ export function Lightbox({
         onTouchEnd={handleTouchEnd}
         style={{ touchAction: "pan-y" }}
       >
-        {/* Previous image (fading out) */}
+        {/* Previous image (stays visible underneath as backdrop during crossfade) */}
         {prevImg && (
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ animation: `fade-out ${CROSSFADE_MS}ms ease-out forwards` }}
-          >
+          <div className="absolute inset-0 flex items-center justify-center">
             <Image
               src={withBasePath(prevImg.src)}
               alt={prevImg.alt}
@@ -160,10 +173,10 @@ export function Lightbox({
             />
           </div>
         )}
-        {/* Current image (fading in when changing index) */}
+        {/* Current image (fades in on top of previous, preventing background flash) */}
         <div
           className={`flex items-center justify-center ${previousIndex !== null ? "animate-fade-in" : ""}`}
-          style={previousIndex !== null ? { animationDuration: `${CROSSFADE_MS}ms` } : undefined}
+          style={previousIndex !== null ? CROSSFADE_STYLE : undefined}
         >
           <Image
             src={withBasePath(img.src)}
@@ -186,8 +199,10 @@ export function Lightbox({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/70">
-        {currentIndex + 1} / {images.length}
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1">
+        <span className="text-sm text-white/70">
+          {currentIndex + 1} / {images.length}
+        </span>
       </div>
     </div>
   );
