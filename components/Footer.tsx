@@ -10,8 +10,8 @@ export function Footer() {
               Mossy Giraffe
             </p>
             <p className="mt-2 max-w-sm text-small leading-relaxed text-muted">
-              Fine-art photography rooted in the Pacific Northwest—landscapes,
-              cityscapes, and the moments in between.
+              Photography bridging engineering precision and artistic heritage—from
+              Washington roots to San Francisco light, crafted for print.
             </p>
           </div>
           <div className="flex items-center gap-6">
