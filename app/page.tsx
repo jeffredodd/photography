@@ -34,9 +34,9 @@ export default function Home() {
                 the Story
               </h1>
               <p className="mt-4 animate-slide-up text-body text-white/90 [animation-delay:150ms] md:text-lg">
-                Fine-art photography capturing the quiet drama of landscapes,
-                architecture, and wildlife—from the misty Pacific Northwest to
-                the sun-warmed streets of Europe.
+                An engineer&apos;s precision meets a second-generation
+                artist&apos;s soul—photography from Washington roots to San
+                Francisco light, always crafted for print.
               </p>
               <div className="mt-8 animate-slide-up [animation-delay:300ms]">
                 <Link
@@ -119,14 +119,17 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-3 font-display text-section-lg font-bold tracking-tight text-foreground">
-              From the Northwest to the World
+              Engineer&apos;s Eye, Artist&apos;s Soul
             </h2>
             <p className="mt-6 text-body leading-relaxed text-muted">
-              Every collection begins with a sense of place. The fog-draped
-              coastlines and ancient forests of the Pacific Northwest. The
-              golden-hour glow over Spanish plazas and Parisian rooftops. The
-              bold geometry of San Francisco against the Pacific sky. Each image
-              is an invitation to pause and look closer.
+              Jeffrey bridges the meticulous precision of a software engineer
+              with the soul of a second-generation artist. Raised by a silk
+              screen artist in Washington&apos;s Pacific Northwest, his
+              understanding of color, layers, and craft now channels through
+              cutting-edge Sony technology. Every image is a tribute to those
+              roots—captured in San Francisco&apos;s fog and light, and finished
+              with the same care for the physical print that his father gave to
+              every pull.
             </p>
             <div className="mt-8">
               <Link
