@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import {
   getCollectionBySlug,
   getCollectionSlugs,
@@ -44,11 +45,14 @@ export default async function CollectionPage({ params }: Props) {
 
   return (
     <main className="mx-auto min-h-screen max-w-content px-6 py-8 md:px-8 lg:px-12 lg:py-12">
-      <ImageGridWithLightbox
-        collection={collection}
-        prevSlug={prev?.slug ?? null}
-        nextSlug={next?.slug ?? null}
-      />
+      <Suspense fallback={<div className="animate-pulse rounded-lg bg-surface aspect-[4/3] w-full" />}>
+        <ImageGridWithLightbox
+          collection={collection}
+          slug={slug}
+          prevSlug={prev?.slug ?? null}
+          nextSlug={next?.slug ?? null}
+        />
+      </Suspense>
     </main>
   );
 }

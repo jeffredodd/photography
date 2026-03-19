@@ -8,14 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "Georgia", "serif"],
+      },
       colors: {
-        background: "#ffffff",
-        surface: "rgb(249 250 251)",
-        border: "rgb(229 231 235)",
-        muted: "rgb(75 85 99)",
-        foreground: "rgb(17 24 39)",
-        accent: "rgb(31 41 55)",
-        ring: "rgb(156 163 175)",
+        background: "#fafaf9",
+        surface: "rgb(245 245 244)",
+        border: "rgb(228 228 226)",
+        muted: "rgb(87 83 78)",
+        foreground: "rgb(28 25 23)",
+        accent: "rgb(41 37 36)",
+        ring: "rgb(168 162 158)",
       },
       maxWidth: {
         content: "72rem",

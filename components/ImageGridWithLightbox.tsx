@@ -1,35 +1,80 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Lightbox } from "./Lightbox";
 import type { GalleryCollection } from "@/lib/gallery";
 import { withBasePath } from "@/lib/basePath";
+import { BLUR_DATA_URL } from "@/lib/placeholder";
 
 type Props = {
   collection: GalleryCollection;
+  slug: string;
   prevSlug: string | null;
   nextSlug: string | null;
+  initialImageIndex?: number;
 };
 
 export function ImageGridWithLightbox({
   collection,
+  slug,
   prevSlug,
   nextSlug,
+  initialImageIndex,
 }: Props) {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(
+    initialImageIndex ?? null
+  );
+  const lastFocusRef = useRef<HTMLElement | null>(null);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const open = useCallback((index: number) => setLightboxIndex(index), []);
-  const close = useCallback(() => setLightboxIndex(null), []);
-  const goPrev = useCallback(() => {
-    setLightboxIndex((i) => (i === null ? null : Math.max(0, i - 1)));
+  // Open lightbox from URL on mount (e.g. shared link or refresh with ?image=N)
+  useEffect(() => {
+    const imageParam = searchParams.get("image");
+    if (imageParam != null && lightboxIndex === null) {
+      const idx = Math.max(0, Math.min(Number.parseInt(imageParam, 10), collection.images.length - 1));
+      if (!Number.isNaN(idx)) setLightboxIndex(idx);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const open = useCallback(
+    (index: number) => {
+      lastFocusRef.current = document.activeElement as HTMLElement | null;
+      setLightboxIndex(index);
+      router.replace(`/gallery/${slug}?image=${index}`, { scroll: false });
+    },
+    [slug, router]
+  );
+  const close = useCallback(() => {
+    setLightboxIndex(null);
+    router.replace(`/gallery/${slug}`, { scroll: false });
+  }, [slug, router]);
+  const goPrev = useCallback(() => {
+    setLightboxIndex((i) => {
+      const next = i === null ? null : Math.max(0, i - 1);
+      if (next !== null) router.replace(`/gallery/${slug}?image=${next}`, { scroll: false });
+      return next;
+    });
+  }, [slug, router]);
   const goNext = useCallback(() => {
-    setLightboxIndex((i) =>
-      i === null ? null : Math.min(collection.images.length - 1, i + 1)
-    );
-  }, [collection.images.length]);
+    setLightboxIndex((i) => {
+      const next =
+        i === null ? null : Math.min(collection.images.length - 1, i + 1);
+      if (next !== null) router.replace(`/gallery/${slug}?image=${next}`, { scroll: false });
+      return next;
+    });
+  }, [collection.images.length, slug, router]);
+
+  useEffect(() => {
+    if (lightboxIndex === null && lastFocusRef.current) {
+      lastFocusRef.current.focus();
+      lastFocusRef.current = null;
+    }
+  }, [lightboxIndex]);
 
   return (
     <>
@@ -45,7 +90,7 @@ export function ImageGridWithLightbox({
         <span className="text-foreground">{collection.title}</span>
       </div>
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="text-section font-bold tracking-tight text-foreground">
+        <h1 className="font-display text-section font-bold tracking-tight text-foreground">
           {collection.title}
         </h1>
         <div className="flex gap-6">
@@ -67,41 +112,31 @@ export function ImageGridWithLightbox({
           )}
         </div>
       </div>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4">
+      <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
         {collection.images.map((img, i) => (
-          <li key={i}>
+          <li
+            key={i}
+            className="animate-stagger-in opacity-0"
+            style={{ animationDelay: `${i * 50}ms` }}
+          >
             <button
               type="button"
               onClick={() => open(i)}
               className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring rounded-lg"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-lg bg-surface">
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-surface">
                 <Image
                   src={withBasePath(img.src)}
                   alt={img.alt}
                   width={400}
-                  height={400}
-                  className="h-full w-full object-cover transition group-hover:scale-105"
+                  height={300}
+                  className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-105"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                   unoptimized
                 />
               </div>
-              <span className="mt-1 flex items-center justify-center gap-1 text-caption text-muted group-hover:text-foreground">
-                <svg
-                  className="h-3.5 w-3.5 shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9M5.25 20.25h-4.5m4.5 0v-4.5m0 4.5L9 15m-5.25 5.25v-4.5m0 4.5h4.5m-4.5 0L15 15"
-                  />
-                </svg>
-                View full size
-              </span>
             </button>
           </li>
         ))}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
@@ -7,6 +7,12 @@ import "./globals.css";
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex min-h-screen flex-col bg-background text-foreground antialiased ${dmSans.className}`}
+        className={`flex min-h-screen flex-col bg-background text-foreground antialiased ${dmSans.className} ${playfair.variable}`}
       >
         <Header />
         <div className="flex-1">{children}</div>
