@@ -15,6 +15,7 @@ type Props = {
 };
 
 const CROSSFADE_MS = 250;
+const SWIPE_THRESHOLD_PX = 50;
 
 export function Lightbox({
   images,
@@ -27,6 +28,7 @@ export function Lightbox({
   const [isClosing, setIsClosing] = useState(false);
   const previousIndexRef = useRef<number>(currentIndex);
   const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const img = images[currentIndex];
   const prevImg = previousIndex !== null ? images[previousIndex] : null;
@@ -44,6 +46,25 @@ export function Lightbox({
     setIsClosing(true);
     setTimeout(() => onClose(), 200);
   }, [onClose]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0]?.clientX ?? null;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const start = touchStartX.current;
+      touchStartX.current = null;
+      if (start == null) return;
+      const end = e.changedTouches[0]?.clientX;
+      if (end == null) return;
+      const deltaX = end - start;
+      if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX) return;
+      if (deltaX > 0) onPrev();
+      else onNext();
+    },
+    [onPrev, onNext]
+  );
 
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
@@ -90,7 +111,7 @@ export function Lightbox({
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 ${isClosing ? "animate-fade-out" : "animate-fade-in"}`}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 select-none ${isClosing ? "animate-fade-out" : "animate-fade-in"}`}
       role="dialog"
       aria-modal="true"
       aria-label="Image lightbox"
@@ -98,7 +119,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={handleClose}
-        className="absolute right-4 top-4 z-10 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50"
+        className="absolute right-4 top-4 z-10 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-3 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 active:bg-white/20"
         aria-label="Close"
       >
         <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +129,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={onPrev}
-        className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30"
+        className="absolute left-4 top-1/2 z-10 flex min-h-[48px] min-w-[48px] -translate-y-1/2 items-center justify-center rounded-full p-3 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30 active:bg-white/20"
         aria-label="Previous image"
         disabled={currentIndex <= 0}
       >
@@ -116,7 +137,12 @@ export function Lightbox({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-      <div className="relative max-h-[90vh] max-w-[90vw]">
+      <div
+        className="relative max-h-[90vh] max-w-[90vw]"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ touchAction: "pan-y" }}
+      >
         {/* Previous image (fading out) */}
         {prevImg && (
           <div
@@ -152,7 +178,7 @@ export function Lightbox({
       <button
         type="button"
         onClick={onNext}
-        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30"
+        className="absolute right-4 top-1/2 z-10 flex min-h-[48px] min-w-[48px] -translate-y-1/2 items-center justify-center rounded-full p-3 text-white/80 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/80 focus-visible:ring-offset-black/50 disabled:opacity-30 active:bg-white/20"
         aria-label="Next image"
         disabled={currentIndex >= images.length - 1}
       >
