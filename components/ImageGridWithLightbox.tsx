@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Lightbox } from "./Lightbox";
 import type { GalleryCollection } from "@/lib/gallery";
+import { withBasePath } from "@/lib/basePath";
 
 type Props = {
   collection: GalleryCollection;
@@ -76,7 +77,7 @@ export function ImageGridWithLightbox({
             >
               <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src={`/${img.src}`}
+                  src={withBasePath(img.src)}
                   alt={img.alt}
                   width={400}
                   height={400}

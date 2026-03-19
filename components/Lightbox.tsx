@@ -2,6 +2,7 @@
 
 import { useEffect, useCallback } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 type GalleryImage = { src: string; alt: string };
 
@@ -72,7 +73,7 @@ export function Lightbox({
       </button>
       <div className="relative max-h-[90vh] max-w-[90vw]">
         <Image
-          src={`/${img.src}`}
+          src={withBasePath(img.src)}
           alt={img.alt}
           width={1600}
           height={1200}

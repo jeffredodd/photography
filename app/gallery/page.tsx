@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getCollections } from "@/lib/gallery";
+import { withBasePath } from "@/lib/basePath";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function GalleryPage() {
               {col.images[0] && (
                 <div className="aspect-[4/3] overflow-hidden bg-gray-100">
                   <Image
-                    src={`/${col.images[0].src}`}
+                    src={withBasePath(col.images[0].src)}
                     alt={col.images[0].alt}
                     width={400}
                     height={300}
