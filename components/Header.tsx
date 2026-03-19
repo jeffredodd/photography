@@ -17,12 +17,6 @@ export function Header() {
           >
             Gallery
           </Link>
-          <Link
-            href="/#prints"
-            className="text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
-          >
-            Prints
-          </Link>
         </nav>
       </div>
     </header>

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Gallery — Mossy Giraffe",
   description:
-    "Collections: Spain, Paris, San Francisco, Pacific Northwest, and animals. Fine-art and travel photography.",
+    "Collections: Spain, Paris, San Francisco, Pacific Northwest, and animals. Fine-art photography.",
 };
 
 export default function GalleryPage() {

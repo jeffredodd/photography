@@ -10,7 +10,7 @@ export default function Home() {
         <p className="mt-6 max-w-2xl text-body leading-relaxed text-muted">
           Landscapes, cityscapes, and the in-between. From the Pacific Northwest
           to Spain and beyond, I focus on light, mood, and place. Browse the
-          gallery—prints are available for any image you see.
+          gallery.
         </p>
         <div className="mt-10">
           <Link
@@ -38,21 +38,6 @@ export default function Home() {
             Browse the gallery →
           </Link>
         </div>
-      </section>
-      <section
-        id="prints"
-        className="mx-auto max-w-content border-t border-border px-6 py-16 md:px-8 md:py-24 lg:px-12"
-      >
-        <h2 className="text-section font-semibold text-foreground">Prints</h2>
-        <p className="mt-2 text-body text-muted">
-          Prints are available for any image in the gallery. Inquiries welcome.
-        </p>
-        <a
-          href="mailto:hello@mossygiraffe.com?subject=Print%20inquiry"
-          className="mt-4 inline-block font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
-        >
-          Inquire about prints
-        </a>
       </section>
     </main>
   );

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const BLUESKY_URL = "https://bsky.app";
 
 export function Footer() {
@@ -22,12 +20,6 @@ export function Footer() {
             >
               Bluesky
             </a>
-            <Link
-              href="/#prints"
-              className="text-small text-muted transition hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
-            >
-              Prints
-            </Link>
           </div>
         </div>
         <p className="mt-8 text-caption text-muted">
