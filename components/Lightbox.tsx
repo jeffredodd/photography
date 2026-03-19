@@ -14,13 +14,8 @@ type Props = {
   onNext: () => void;
 };
 
-const CROSSFADE_MS = 250;
+const CROSSFADE_MS = 500;
 const SWIPE_THRESHOLD_PX = 50;
-const CROSSFADE_STYLE: React.CSSProperties = {
-  animationDuration: `${CROSSFADE_MS}ms`,
-  position: "relative",
-  zIndex: 1,
-};
 
 export function Lightbox({
   images,
@@ -31,9 +26,11 @@ export function Lightbox({
 }: Props) {
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [dragOffsetX, setDragOffsetX] = useState(0);
   const previousIndexRef = useRef<number>(currentIndex);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
+  const isDragging = useRef(false);
 
   const img = images[currentIndex];
   const prevImg = previousIndex !== null ? images[previousIndex] : null;
@@ -65,16 +62,31 @@ export function Lightbox({
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0]?.clientX ?? null;
+    isDragging.current = true;
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const currentX = e.targetTouches[0]?.clientX ?? 0;
+    setDragOffsetX(currentX - touchStartX.current);
   }, []);
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       const start = touchStartX.current;
       touchStartX.current = null;
-      if (start == null) return;
+      isDragging.current = false;
+      if (start == null) {
+        setDragOffsetX(0);
+        return;
+      }
       const end = e.changedTouches[0]?.clientX;
-      if (end == null) return;
+      if (end == null) {
+        setDragOffsetX(0);
+        return;
+      }
       const deltaX = end - start;
+      setDragOffsetX(0);
       if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX) return;
       if (deltaX > 0) onPrev();
       else onNext();
@@ -124,6 +136,22 @@ export function Lightbox({
 
   if (!img) return null;
 
+  // Touch drag visual feedback: image follows finger, fades slightly at edges
+  const dragStyle: React.CSSProperties =
+    dragOffsetX !== 0
+      ? {
+          transform: `translateX(${dragOffsetX}px)`,
+          opacity: Math.max(0.6, 1 - Math.abs(dragOffsetX) / 400),
+        }
+      : {};
+
+  // Smooth snap-back when drag is released without completing a swipe
+  const dragTransition: React.CSSProperties = {
+    transition: isDragging.current
+      ? "none"
+      : "transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1)",
+  };
+
   return (
     <div
       ref={containerRef}
@@ -154,10 +182,11 @@ export function Lightbox({
         </svg>
       </button>
       <div
-        className="relative max-h-[90vh] max-w-[90vw]"
+        className="relative max-h-[90vh] max-w-[90vw] will-change-transform"
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        style={{ touchAction: "pan-y" }}
+        style={{ touchAction: "pan-y", ...dragStyle, ...dragTransition }}
       >
         {/* Previous image (stays visible underneath as backdrop during crossfade) */}
         {prevImg && (
@@ -175,8 +204,8 @@ export function Lightbox({
         )}
         {/* Current image (fades in on top of previous, preventing background flash) */}
         <div
-          className={`flex items-center justify-center ${previousIndex !== null ? "animate-fade-in" : ""}`}
-          style={previousIndex !== null ? CROSSFADE_STYLE : undefined}
+          className={`flex items-center justify-center ${previousIndex !== null ? "animate-lightbox-crossfade" : ""}`}
+          style={previousIndex !== null ? { position: "relative", zIndex: 1 } : undefined}
         >
           <Image
             src={withBasePath(img.src)}
