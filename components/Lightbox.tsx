@@ -25,6 +25,7 @@ export function Lightbox({
   onNext,
 }: Props) {
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
+  const [imageLoaded, setImageLoaded] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
   const [dragOffsetX, setDragOffsetX] = useState(0);
   const previousIndexRef = useRef<number>(currentIndex);
@@ -35,15 +36,21 @@ export function Lightbox({
   const img = images[currentIndex];
   const prevImg = previousIndex !== null ? images[previousIndex] : null;
 
-  // Crossfade: when currentIndex changes, keep previous visible underneath while
-  // the current image fades in on top, preventing black-background bleed-through.
+  // When currentIndex changes, snapshot the old index and wait for the new
+  // image to load before starting the crossfade animation.
   useEffect(() => {
     if (currentIndex === previousIndexRef.current) return;
     setPreviousIndex(previousIndexRef.current);
+    setImageLoaded(false);
     previousIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
+  // Once the new image has loaded, run the crossfade timer to clear the backdrop.
+  useEffect(() => {
+    if (!imageLoaded || previousIndex === null) return;
     const t = setTimeout(() => setPreviousIndex(null), CROSSFADE_MS);
     return () => clearTimeout(t);
-  }, [currentIndex]);
+  }, [imageLoaded, previousIndex]);
 
   // Preload adjacent images so they are cached before the user swipes
   useEffect(() => {
@@ -51,8 +58,11 @@ export function Lightbox({
       const img = new window.Image();
       img.src = withBasePath(src);
     };
-    if (images[currentIndex - 1]) preload(images[currentIndex - 1].src);
-    if (images[currentIndex + 1]) preload(images[currentIndex + 1].src);
+    const offsets = [-2, -1, 1, 2];
+    for (const offset of offsets) {
+      const idx = currentIndex + offset;
+      if (images[idx]) preload(images[idx].src);
+    }
   }, [currentIndex, images]);
 
   const handleClose = useCallback(() => {
@@ -202,18 +212,30 @@ export function Lightbox({
             />
           </div>
         )}
-        {/* Current image (fades in on top of previous, preventing background flash) */}
+        {/* Current image – hidden until loaded, then crossfades in over the previous */}
         <div
-          className={`flex items-center justify-center ${previousIndex !== null ? "animate-lightbox-crossfade" : ""}`}
-          style={previousIndex !== null ? { position: "relative", zIndex: 1 } : undefined}
+          className={`flex items-center justify-center ${
+            imageLoaded && previousIndex !== null
+              ? "animate-lightbox-crossfade"
+              : ""
+          }`}
+          style={{
+            ...(previousIndex !== null
+              ? { position: "relative", zIndex: 1 }
+              : {}),
+            ...(!imageLoaded ? { opacity: 0 } : {}),
+          }}
         >
           <Image
+            key={currentIndex}
             src={withBasePath(img.src)}
             alt={img.alt}
             width={1600}
             height={1200}
             className="max-h-[90vh] w-auto object-contain"
+            priority
             unoptimized
+            onLoad={() => setImageLoaded(true)}
           />
         </div>
       </div>
