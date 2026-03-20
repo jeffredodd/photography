@@ -1,6 +1,6 @@
 /**
- * Base path for the app (e.g. /photography on GitHub Pages).
- * Set NEXT_PUBLIC_BASE_PATH in the build so image and asset URLs are correct.
+ * Base path for the app (empty for custom domain, e.g. mossygiraffe.com).
+ * Set NEXT_PUBLIC_BASE_PATH in the build if a subpath is needed.
  */
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
